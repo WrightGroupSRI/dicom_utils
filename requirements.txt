@@ -1,3 +1,0 @@
-# requirements of dicom_utils
-numpy
-pydicom
