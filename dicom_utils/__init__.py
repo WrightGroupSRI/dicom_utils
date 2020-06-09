@@ -32,13 +32,30 @@ def spacing(d):
     return numpy.array(d[0x28, 0x30].value)
 
 
+def pixel_array(d):
+    '''Read the given dicom's image data.'''
+    return d.pixel_array
+
+
+def get_4vect(vect):
+    '''Extend a vector of len(v) = 2 or 3 to len(v) = 4 by appending 1s.'''
+    assert len(vect) < 4
+    return numpy.append(vect, numpy.ones(4 - len(vect)))
+
+
+def get_3vect(vect): 
+    '''Take a vector of len(v)=4 and reduce it to 3 by dropping last coordinate.'''
+    assert len(vect) == 4
+    return numpy.array([vect[0], vect[1], vect[2]])
+
+
 def pixel_to_image(d):
     """Get the transform that sends pixel coordinates to image coordinates."""
     s = spacing(d)
     # We need a length 4 diagonal, assume that all unspecified directions have
     # a resolution of 1 mm. len(s) should be 2 or 3.
     assert len(s) < 4, "Too many values in s"
-    s = numpy.append(s, numpy.ones(4 - len(s)))
+    s = get_4vect(s)
     return numpy.diag(s)
 
 
