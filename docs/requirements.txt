@@ -54,6 +54,7 @@ ruamel.yaml==0.18.14
 ruamel.yaml.clib==0.2.8
 schema==0.7.7
 scipy==1.16.0
+setuptools==80.9.0
 shiboken6==6.9.1
 six==1.17.0
 snowballstemmer==3.0.1
@@ -70,6 +71,8 @@ sphinxcontrib-serializinghtml==1.1.10
 tornado==6.5.1
 typing_extensions==4.14.1
 tzdata==2025.2
+unicodedata2==16.0.0
 urllib3==2.5.0
 wcwidth==0.2.13
+wheel==0.45.1
 zstandard==0.23.0
